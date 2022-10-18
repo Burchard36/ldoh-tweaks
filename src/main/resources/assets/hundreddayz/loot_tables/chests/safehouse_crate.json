@@ -91,7 +91,7 @@
 			},
 			{
 				"type": "item",
-				"name": "cgm:basic_ammo",
+				"name": "minecraft:diamond",
 				"weight": 9,
 				"functions": [{
 					"function": "minecraft:set_count",

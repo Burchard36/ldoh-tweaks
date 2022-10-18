@@ -10,7 +10,9 @@ import jds.bibliocraft.blocks.BiblioWoodBlock.EnumWoodType;
 import jds.bibliocraft.blocks.BlockSeat;
 import mariot7.xlfoodmod.init.BlockListxlfoodmod;
 import net.blay09.mods.cookingforblockheads.block.BlockFridge;
+import net.blay09.mods.cookingforblockheads.block.ModBlocks;
 import net.blay09.mods.cookingforblockheads.tile.TileFridge;
+import net.blay09.mods.cookingforblockheads.tile.TileFruitBasket;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockButton;
 import net.minecraft.block.BlockChest;
@@ -33,6 +35,7 @@ import net.minecraft.tileentity.TileEntitySign;
 import net.minecraft.tileentity.TileEntitySkull;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.ReportedException;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
@@ -56,7 +59,6 @@ import com.chaosthedude.realistictorches.blocks.RealisticTorchesBlocks;
 import com.mrcrayfish.furniture.blocks.BlockFurniture;
 import com.mrcrayfish.furniture.init.FurnitureBlocks;
 import com.mrcrayfish.furniture.tileentity.TileEntityTree;
-import com.mrcrayfish.guns.block.BlockWorkbench;
 
 public class WorldGenSafehouse extends WorldGenerator {
 
@@ -434,8 +436,9 @@ public class WorldGenSafehouse extends WorldGenerator {
 			throw new ReportedException(report);
 		}
 		//workbenches and chests
-		world.setBlockState(pos.west(4).south(4), com.mrcrayfish.guns.init.ModBlocks.WORKBENCH.getDefaultState().withProperty(BlockWorkbench.FACING, isAprilFools ? EnumFacing.EAST : EnumFacing.WEST), 18);
-		world.setBlockState(pos.west(4).south(3), Blocks.CRAFTING_TABLE.getDefaultState(), 18);
+		//world.setBlockState(pos.west(4).south(4), com.mrcrayfish.guns.init.ModBlocks.WORKBENCH.getDefaultState().withProperty(BlockWorkbench.FACING, isAprilFools ? EnumFacing.EAST : EnumFacing.WEST), 18);
+		world.setBlockState(pos.west(4).south(3), Block.REGISTRY.getObject(new ResourceLocation("sevendaystomine", "workbench")).getStateFromMeta(5), 18);
+		world.setBlockState(pos.west(1).south(2).up(5), Block.REGISTRY.getObject(new ResourceLocation("mw", "hanging_body")).getDefaultState(), 18);
 
 		for (int i = 0; i <= 1; i++) {
 			BlockPos chest = pos.south(4).west(i);
@@ -472,9 +475,19 @@ public class WorldGenSafehouse extends WorldGenerator {
 				world.setBlockState(pos.add(i, 0, j), FurnitureBlocks.TABLE_SPRUCE.getDefaultState(), 19);
 			}
 		}
-		world.setBlockState(pos.add(4, 0, 2), BlockSeat.instance.getDefaultState().withProperty(BlockSeat.WOOD_TYPE, EnumWoodType.SPRUCE), 18);
-		world.setBlockState(pos.add(2, 0, 3), BlockSeat.instance.getDefaultState().withProperty(BlockSeat.WOOD_TYPE, EnumWoodType.SPRUCE), 18);
-		world.setBlockState(pos.add(3, 1, 3), FurnitureBlocks.PLATE.getDefaultState(), 18);
+		world.setBlockState(pos.add(4, 0, 2), Block.REGISTRY.getObject(new ResourceLocation("ironagefurniture", "chair_wood_ironage_shield_big_oak")).getStateFromMeta(2), 18);
+		world.setBlockState(pos.add(2, 0, 3), Block.REGISTRY.getObject(new ResourceLocation("ironagefurniture", "chair_wood_ironage_shield_big_oak")).getStateFromMeta(1), 18);
+		world.setBlockState(pos.add(3, 1, 3), ModBlocks.fruitBasket.getDefaultState(), 18);
+		IItemHandler basketInv = ((TileFruitBasket) world.getTileEntity(pos.add(3, 1, 3))).getDropoffItemHandler(null);
+		for (ItemStack stack : manager.getLootTableFromLocation(ModDefinitions.SAFEHOUSE_VEGGIES).generateLootForPools(rand, new LootContext(0, (WorldServer) world, manager, null, null, null))) {
+			while (true) {
+				int slot = rand.nextInt(basketInv.getSlots());
+				if (basketInv.isItemValid(slot, stack)) {
+					basketInv.insertItem(slot, stack, false);
+					break;
+				}
+			}
+		}
 
 		world.setBlockState(pos.east(4), net.blay09.mods.cookingforblockheads.block.ModBlocks.fridge.getDefaultState().withProperty(BlockFridge.FACING,
 				isAprilFools ? EnumFacing.EAST : EnumFacing.WEST), 18);
@@ -532,17 +545,23 @@ public class WorldGenSafehouse extends WorldGenerator {
 
 		//outer door
 		if (exitpos.getY() != 0) {
-			for (int i = -1; i<2; i++) {
-				for (int j = 0; j<=2; j++) {
+			for (int i = -1; i<4; i++) {
+				for (int j = 0; j<=3; j++) {
 					setRandomBrick(rand, world, exitpos.east(i).up(j));
 				}
 			}
-			door = Blocks.IRON_DOOR.getDefaultState().withProperty(BlockDoor.FACING, EnumFacing.SOUTH);
-			world.setBlockState(exitpos, door.withProperty(BlockDoor.HALF, BlockDoor.EnumDoorHalf.LOWER), 18);
-			world.setBlockState(exitpos.up(), door.withProperty(BlockDoor.HALF, BlockDoor.EnumDoorHalf.UPPER), 18);
-			IBlockState button = Blocks.STONE_BUTTON.getDefaultState();
-			world.setBlockState(exitpos.up().east().north(), button.withProperty(BlockButton.FACING, EnumFacing.NORTH), 18);
-			world.setBlockState(exitpos.up().east().south(), button.withProperty(BlockButton.FACING, EnumFacing.SOUTH), 18);
+
+			for (int i = 0; i < 3; i++) {
+				for (int j = 0; j <=2; j++) {
+					setAir(world, exitpos.east(i).up(j));
+				}
+			}
+
+			door = Block.REGISTRY.getObject(new ResourceLocation("malisisdoors", "big_door_rusty_3x3")).getStateFromMeta(0);
+			world.setBlockState(exitpos.east(1), door, 18);
+			//IBlockState button = Blocks.STONE_BUTTON.getDefaultState();
+			//world.setBlockState(exitpos.up().east().north(), button.withProperty(BlockButton.FACING, EnumFacing.NORTH), 18);
+			//world.setBlockState(exitpos.up().east().south(), button.withProperty(BlockButton.FACING, EnumFacing.SOUTH), 18);
 		}
 		if (isHalloween) placeHalloweenDecorations(world, rand, pos);
 		if (isChristmas) placeChristmasDecorations(world, rand, pos);
@@ -609,6 +628,10 @@ public class WorldGenSafehouse extends WorldGenerator {
 			state = state.withProperty(BlockStoneBrick.VARIANT, BlockStoneBrick.EnumType.MOSSY);
 		}
 		world.setBlockState(pos, state, 18);
+	}
+
+	private void setAir(World world, BlockPos pos) {
+		world.setBlockState(pos, Blocks.AIR.getDefaultState());
 	}
 
 	private void placeCrate(BlockPos pos, World world) {

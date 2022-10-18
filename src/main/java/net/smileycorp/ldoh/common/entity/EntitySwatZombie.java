@@ -1,16 +1,14 @@
 package net.smileycorp.ldoh.common.entity;
 
+import com.vicmatskiv.mw.Guns;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
 import net.minecraft.world.World;
 import net.smileycorp.ldoh.common.item.LDOHItems;
-
-import com.mrcrayfish.guns.init.ModGuns;
 
 public class EntitySwatZombie extends EntityProfessionZombie {
 
@@ -67,7 +65,7 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 	}
 
 	private static ItemStack createGun() {
-		ItemStack gun = new ItemStack(ModGuns.MACHINE_PISTOL);
+		/*ItemStack gun = new ItemStack(ModGuns.MACHINE_PISTOL);
 		NBTTagCompound nbt = new NBTTagCompound();
 		NBTTagCompound attachments = new NBTTagCompound();
 		NBTTagCompound barrel = new NBTTagCompound();
@@ -82,12 +80,12 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 		attachments.setTag("scope", scope);
 		nbt.setTag("attachments", attachments);
 		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);
-		return gun;
+		gun.setTagCompound(nbt);*/
+		return new ItemStack(Guns.M4A1);
 	}
 
 	private static ItemStack createShotgun() {
-		ItemStack gun = new ItemStack(ModGuns.SHOTGUN);
+		/*ItemStack gun = new ItemStack(ModGuns.SHOTGUN);
 		NBTTagCompound nbt = new NBTTagCompound();
 		NBTTagCompound attachments = new NBTTagCompound();
 		NBTTagCompound scope = new NBTTagCompound();
@@ -97,12 +95,12 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 		attachments.setTag("scope", scope);
 		nbt.setTag("attachments", attachments);
 		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);
-		return gun;
+		gun.setTagCompound(nbt);*/
+		return new ItemStack(Guns.Spas12);
 	}
 
 	private static ItemStack createPistol() {
-		ItemStack gun = new ItemStack(ModGuns.PISTOL);
+		/*ItemStack gun = new ItemStack(ModGuns.PISTOL);
 		NBTTagCompound nbt = new NBTTagCompound();
 		NBTTagCompound attachments = new NBTTagCompound();
 		NBTTagCompound barrel = new NBTTagCompound();
@@ -112,8 +110,8 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 		attachments.setTag("barrel", barrel);
 		nbt.setTag("attachments", attachments);
 		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);
-		return gun;
+		gun.setTagCompound(nbt);*/
+		return new ItemStack(Guns.DesertEagle);
 	}
 
 }

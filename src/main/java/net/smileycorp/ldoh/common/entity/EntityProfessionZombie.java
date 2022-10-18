@@ -31,7 +31,6 @@ public abstract class EntityProfessionZombie extends EntityZombie {
 	public void onDeath(DamageSource source) {
 		super.onDeath(source);
 		if (source.getTrueSource() instanceof EntityPlayer) tryDropBook((EntityPlayer) source.getTrueSource());
-		else if (source.getTrueSource() instanceof EntityTurret) tryDropBook(((EntityTurret) source.getTrueSource()).getOwner());
 	}
 
 	private void tryDropBook(EntityPlayer player) {

@@ -12,7 +12,7 @@
     		"ore": "ingotIron"
         },
 		"M" : {
-            "item": "cgm:chain_gun",
+            "item": "ingotIron",
 			"data": 0
         },
 		"O" : {

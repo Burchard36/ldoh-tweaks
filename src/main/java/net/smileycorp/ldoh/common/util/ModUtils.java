@@ -271,22 +271,6 @@ public class ModUtils {
 		return new EntityZombie(world);
 	}
 
-	public static float calculateCrateWeight(ItemStack stack, float weight) {
-		NBTTagCompound nbt = new NBTTagCompound();
-		nbt = stack.writeToNBT(nbt);
-		NBTTagList items = nbt.getTagList("Items", 10);
-		for (int i = 0; i < items.tagCount(); i++){
-			NBTTagCompound itemTags = items.getCompoundTagAt(i);
-			ItemStack stackInBox = new ItemStack(Item.getByNameOrId(itemTags.getString("id")), itemTags.getByte("Count"), itemTags.getShort("Damage"));
-			Block blockInBox = Block.getBlockFromItem(stackInBox.getItem());
-			if (!blockInBox.equals(Blocks.AIR) && !stack.getItem().equals(Items.AIR))
-				weight += ModuleMovementRestriction.getItemWeight(stackInBox) * stackInBox.getCount();
-			if (weight == 0f)
-				weight = 1f / 64f * stack.getCount();
-		}
-		return weight;
-	}
-
 	public static void getAttributeModifiers(EntityEquipmentSlot slot, ItemStack stack, Multimap<String, AttributeModifier> map) {
 		if (stack.getItem() == FurnitureItems.CROWBAR && slot == EntityEquipmentSlot.MAINHAND) {
 			map.put(SharedMonsterAttributes.ATTACK_DAMAGE.getName(), new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", 3d, 0));

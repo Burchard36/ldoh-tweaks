@@ -79,9 +79,7 @@ import net.smileycorp.ldoh.common.entity.EntityDummyHusk2;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie0;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie1;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie2;
-import net.smileycorp.ldoh.common.entity.EntityIncendiaryProjectile;
 import net.smileycorp.ldoh.common.entity.EntityTF2Zombie;
-import net.smileycorp.ldoh.common.entity.EntityTurret;
 import net.smileycorp.ldoh.common.entity.EntityZombieFireman;
 import net.smileycorp.ldoh.common.entity.EntityZombieNurse;
 import net.smileycorp.ldoh.common.item.LDOHItems;
@@ -373,11 +371,6 @@ public class EntityEvents {
 				entity.addPotionEffect(new PotionEffect(TF2weapons.bleeding, 70));
 			}
 		}
-		if (attacker instanceof EntityIncendiaryProjectile) {
-			if (entity instanceof EntityParasiteBase) event.setAmount(event.getAmount() * 3f);
-			else event.setAmount(event.getAmount() * 0.7f);
-			entity.setFire(2);
-		}
 	}
 
 	//adds items to zombie loot table
@@ -411,7 +404,7 @@ public class EntityEvents {
 		if (!world.isRemote && world.getWorldType() != WorldType.FLAT
 				&! (entity instanceof EntityParasiteBase || entity.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD)) {
 			if (entity.getPosition().getY() + entity.getEyeHeight() <= 31) {
-				if (entity instanceof EntityBuilding || entity instanceof EntityTurret) return;
+				if (entity instanceof EntityBuilding) return;
 				if (entity instanceof EntityTF2Character) if (((EntityTF2Character) entity).isRobot()) return;
 				ItemStack helm = entity.getItemStackFromSlot(EntityEquipmentSlot.HEAD);
 				if (entity.ticksExisted % 35 == 0) {

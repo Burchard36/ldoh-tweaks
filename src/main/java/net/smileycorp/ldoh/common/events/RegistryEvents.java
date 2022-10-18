@@ -29,12 +29,10 @@ import net.smileycorp.ldoh.common.entity.EntityDummyHusk2;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie0;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie1;
 import net.smileycorp.ldoh.common.entity.EntityDummyZombie2;
-import net.smileycorp.ldoh.common.entity.EntityIncendiaryProjectile;
 import net.smileycorp.ldoh.common.entity.EntityLDOHArchitect;
 import net.smileycorp.ldoh.common.entity.EntityLDOHTradesman;
 import net.smileycorp.ldoh.common.entity.EntitySwatZombie;
 import net.smileycorp.ldoh.common.entity.EntityTF2Zombie;
-import net.smileycorp.ldoh.common.entity.EntityTurret;
 import net.smileycorp.ldoh.common.entity.EntityZombieFireman;
 import net.smileycorp.ldoh.common.entity.EntityZombieMechanic;
 import net.smileycorp.ldoh.common.entity.EntityZombieNurse;
@@ -42,12 +40,10 @@ import net.smileycorp.ldoh.common.entity.EntityZombieTechnician;
 import net.smileycorp.ldoh.common.item.ItemBarbedWire;
 import net.smileycorp.ldoh.common.item.ItemBlockLDOH;
 import net.smileycorp.ldoh.common.item.ItemBlockTooltip;
-import net.smileycorp.ldoh.common.item.ItemTurret;
 import net.smileycorp.ldoh.common.item.LDOHItems;
 import net.smileycorp.ldoh.common.tile.TileBarbedWire;
 import net.smileycorp.ldoh.common.tile.TileHordeSpawner;
 import net.smileycorp.ldoh.common.tile.TileLandmine;
-import net.smileycorp.ldoh.common.tile.TileTurret;
 import net.smileycorp.ldoh.common.world.ModWorldGen;
 
 import com.Fishmod.mod_LavaCow.init.FishItems;
@@ -73,7 +69,6 @@ public class RegistryEvents {
 		}
 		registerItem(registry, new ItemBarbedWire());
 		registerItem(registry, new ItemBlockTooltip(LDOHBlocks.LANDMINE, 2));
-		registerItem(registry, new ItemTurret());
 		registerItem(registry, new ItemBlockLDOH(LDOHBlocks.HORDE_SPAWNER));
 	}
 
@@ -97,7 +92,6 @@ public class RegistryEvents {
 		GameRegistry.registerTileEntity(TileBarbedWire.class, ModDefinitions.getResource("barbed_wire"));
 		GameRegistry.registerTileEntity(TileHordeSpawner.class, ModDefinitions.getResource("horde_spawner"));
 		GameRegistry.registerTileEntity(TileLandmine.class, ModDefinitions.getResource("landmine"));
-		GameRegistry.registerTileEntity(TileTurret.class, ModDefinitions.getResource("turret"));
 	}
 
 	@SubscribeEvent
@@ -175,14 +169,6 @@ public class RegistryEvents {
 				.id(ModDefinitions.getResource("tradesman"), ID++)
 				.name("villager.tradesman").tracker(80, 3, true).build();
 		registry.register(TRADESMAN);
-		EntityEntry TURRET = EntityEntryBuilder.create().entity(EntityTurret.class)
-				.id(ModDefinitions.getResource("turret"), ID++)
-				.name(ModDefinitions.getName("Turret")).tracker(80, 3, true).build();
-		registry.register(TURRET);
-		EntityEntry INCENDIARY_PROJECTILE = EntityEntryBuilder.create().entity(EntityIncendiaryProjectile.class)
-				.id(ModDefinitions.getResource("incendiary_projectile"), ID++)
-				.name(ModDefinitions.getName("IncendiaryProjectile")).tracker(64, 80, true).build();
-		registry.register(INCENDIARY_PROJECTILE);
 		EntityEntry ZOMBIE_FIREMAN = EntityEntryBuilder.create().entity(EntityZombieFireman.class)
 				.id(ModDefinitions.getResource("zombie_fireman"), ID++)
 				.name(ModDefinitions.getName("ZombieFireman")).tracker(80, 3, true).build();

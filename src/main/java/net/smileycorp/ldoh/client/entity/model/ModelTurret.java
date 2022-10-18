@@ -5,7 +5,6 @@ import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
-import net.smileycorp.ldoh.common.entity.EntityTurret;
 
 /**
  * turret - Undefined
@@ -146,10 +145,7 @@ public class ModelTurret extends ModelBase {
 			} else {
 				GlStateManager.color(0.25f, 0.25f, 0.25f);
 			}
-			if (entity instanceof EntityTurret) {
-				axel.rotateAngleX = headPitch * 0.0174533f;
-				gun_middle.rotateAngleZ = ((EntityTurret)entity).getSpin();
-			} else gun_middle.rotateAngleZ=(0.0261799388f*age);
+			gun_middle.rotateAngleZ=(0.0261799388f*age);
 		}
 		base.render(scale);
 		GlStateManager.color(1, 1, 1);
@@ -159,36 +155,7 @@ public class ModelTurret extends ModelBase {
 
 	@Override
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float ageInTicks, float yaw, float pitch, float scale, Entity entity) {
-		if (entity != null) {
-			switch (((EntityTurret) entity).getFacing()) {
-			case UP: break;
-			case DOWN:
-				GlStateManager.rotate(180, 1, 0, 0);
-				GlStateManager.translate(0, -2.5, 0);
-				break;
-			case NORTH:
-				GlStateManager.rotate(-90, 1, 0, 0);
-				GlStateManager.translate(0, -1.25, 1.25);
-				break;
-			case SOUTH:
-				GlStateManager.rotate(90, 1, 0, 0);
-				GlStateManager.rotate(180, 0, 1, 0);
-				GlStateManager.translate(0, -1.25, 1.25);
-				break;
-			case EAST:
-				GlStateManager.rotate(-90, 0, 1, 0);
-				GlStateManager.rotate(90, 1, 0, 0);
-				GlStateManager.translate(0, -1.25, -1.25);
-				break;
-			case WEST:
-				GlStateManager.rotate(90, 0, 1, 0);
-				GlStateManager.rotate(90, 1, 0, 0);
-				GlStateManager.translate(0, -1.25, -1.25);
-				break;
-			}
-			base.rotateAngleY = yaw  * 0.0174533f;
-			axel.rotateAngleY = yaw * 0.0174533f;
-		}
+
 	}
 
 	/**

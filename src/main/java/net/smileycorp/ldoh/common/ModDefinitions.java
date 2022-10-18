@@ -12,7 +12,7 @@ public class ModDefinitions {
 			+ "required-after:mod_lavacow;required-after:firstaid;required-after:animania;required-after:wastelands;required-after:biomesoplenty;"
 			+ "required-after:cgm;required-after:cfm;required-after:realistictorches;required-after:xlfoodmod;required-after:cookingforblockheads;"
 			+ "required-after:bibliocraft;required-after:car;required-after:buildcraftcore;after:biometweaker;required-after:animania;required-after:followme;required-after:gamestages;"
-			+ "required-after:reccomplex;required-before:iguanatweaks;before:vanillafix";
+			+ "required-after:reccomplex;before:vanillafix";
 	public static final String LOCATION = "net.smileycorp.ldoh.";
 	public static final String CLIENT = LOCATION + "client.ClientProxy";
 	public static final String COMMON = LOCATION + "common.CommonProxy";
@@ -40,6 +40,7 @@ public class ModDefinitions {
 	public static final ResourceLocation SAFEHOUSE_CHEST = getResource("chests/safehouse_chest");
 	public static final ResourceLocation SAFEHOUSE_CABINET = getResource("chests/safehouse_cabinet");
 	public static final ResourceLocation SAFEHOUSE_FRIDGE = getResource("chests/safehouse_fridge");
+	public static final ResourceLocation SAFEHOUSE_VEGGIES = getResource("chests/safehouse_veggies");
 	public static final ResourceLocation SAFEHOUSE_MEDICAL_FRIDGE = getResource("chests/safehouse_medical_fridge");
 	public static final ResourceLocation SAFEHOUSE_CRATE = getResource("chests/safehouse_crate");
 	public static final ResourceLocation NEST_CRATE = getResource("chests/nest_crate");

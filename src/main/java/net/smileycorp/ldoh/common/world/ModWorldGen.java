@@ -38,12 +38,12 @@ public class ModWorldGen implements IWorldGenerator {
 			((TileHordeSpawner)world.getTileEntity(pos)).setNatural();
 		}
 		BlockPos chunkpos = new BlockPos(x, 0 , z);
-		//adds our custom oregen to biomes other than the apocalyptic desert
+		/*//adds our custom oregen to biomes other than the apocalyptic desert
 		if (!EnumBiomeType.DESERT.matches(biome)) {
 			genOre(world, chunkpos, rand, Blocks.COAL_ORE);
 			genOre(world, chunkpos, rand, Blocks.IRON_ORE);
 			genOre(world, chunkpos, rand, Blocks.GOLD_ORE);
-		}
+		}*/
 		if (EnumBiomeType.OCEAN.matches(biome) && rand.nextInt(15) == 0) {
 			EnumVariant variant = EnumVariant.values()[new Random().nextInt(EnumVariant.values().length)];
 			genSurfaceBlock(world, rand, chunkX, chunkZ, variant.state1, variant.state2);

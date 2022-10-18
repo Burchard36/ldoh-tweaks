@@ -21,7 +21,6 @@ import net.minecraft.client.renderer.tileentity.TileEntityItemStackRenderer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumFacing;
 import net.minecraftforge.client.ForgeHooksClient;
-import net.smileycorp.ldoh.client.entity.RenderTurret;
 import net.smileycorp.ldoh.client.entity.model.ModelTurret;
 import net.smileycorp.ldoh.common.ModDefinitions;
 
@@ -127,7 +126,6 @@ public class TESRTurretItem extends TileEntityItemStackRenderer {
 		}
 		IBakedModel base = mc.getRenderItem().getItemModelMesher().getModelManager().getModel(BASE_LOC);
 		mc.getRenderItem().renderItem(stack, ForgeHooksClient.handleCameraTransforms(base, transforms, false));
-		mc.getTextureManager().bindTexture(RenderTurret.TEXTURE);
 		GlStateManager.rotate(90, 0, 1, 0);
 		GlStateManager.rotate(180, 1, 0, 0);
 		GlStateManager.translate(0, -0.9, 0);
