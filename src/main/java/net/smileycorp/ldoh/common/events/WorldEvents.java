@@ -55,8 +55,7 @@ public class WorldEvents {
 						y = 0;
 						x += rand.nextInt(32) - rand.nextInt(32);
 						z += rand.nextInt(32) - rand.nextInt(32);
-					}
-					else {
+					} else {
 						//determines if the safehouse can be placed here
 						if (ConfigHandler.betaSpawnpoint || safehouse.markPositions(world, new BlockPos(x, y-1, z), false)) break;
 						y = 0;
@@ -78,7 +77,7 @@ public class WorldEvents {
 				//cancel after 1000 tries to not lock the game in an infinite loop
 				if (tries >= 1000) {
 					y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
-					System.out.println("Found no suitable location for spawn");
+					System.out.println("Found no suitable location for spawn (Try generating a new world)");
 					break;
 				}
 			}

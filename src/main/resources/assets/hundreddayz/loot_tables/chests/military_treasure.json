@@ -7,10 +7,6 @@
 		},
 		"entries": [{
 				"type": "item",
-				"name": "hundreddayz:turret",
-				"weight": 1
-			}, {
-				"type": "item",
 				"name": "hundreddayz:landmine",
 				"weight": 2
 			},
@@ -102,7 +98,7 @@
 							"max": 11
 						}
 					}]
-				},
+				}
 		]
 	}]
 }

@@ -438,7 +438,7 @@ public class WorldGenSafehouse extends WorldGenerator {
 		//workbenches and chests
 		//world.setBlockState(pos.west(4).south(4), com.mrcrayfish.guns.init.ModBlocks.WORKBENCH.getDefaultState().withProperty(BlockWorkbench.FACING, isAprilFools ? EnumFacing.EAST : EnumFacing.WEST), 18);
 		world.setBlockState(pos.west(4).south(3), Block.REGISTRY.getObject(new ResourceLocation("sevendaystomine", "workbench")).getStateFromMeta(5), 18);
-		world.setBlockState(pos.west(1).south(2).up(5), Block.REGISTRY.getObject(new ResourceLocation("mw", "hanging_body")).getDefaultState(), 18);
+		world.setBlockState(pos.south(2).up(5), Block.REGISTRY.getObject(new ResourceLocation("mw", "hanging_body")).getDefaultState(), 18);
 
 		for (int i = 0; i <= 1; i++) {
 			BlockPos chest = pos.south(4).west(i);

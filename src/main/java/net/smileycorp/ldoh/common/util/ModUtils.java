@@ -228,14 +228,12 @@ public class ModUtils {
 	public static void spawnHorde(World world, BlockPos basepos, boolean isNatural) {
 		Random rand = world.rand;
 		int day = Math.round(world.getWorldTime()/24000);
-		int c = day >= 101 ? 20 : day>= 50 ? day-40 : -1;
-		boolean isParasite = day >= 50 && rand.nextInt(100) <= c;
 		if (!isNatural || world.getSpawnPoint().getDistance(basepos.getX(), basepos.getY(), basepos.getZ()) >= 200) {
 			for (int i = 0; i < getRandomSize(rand); i++) {
 				Vec3d dir = DirectionUtils.getRandomDirectionVecXZ(rand);
 				BlockPos pos = DirectionUtils.getClosestLoadedPos(world, new BlockPos(basepos.getX(), 0, basepos.getZ()), dir, rand.nextInt(30)/10d);
 				pos = new BlockPos(pos.getX()+rand.nextFloat(), world.getHeight(pos.getX(), pos.getZ()), pos.getZ()+rand.nextFloat());
-				EntityMob entity = isParasite? new EntityInfHuman(world) : getEntity(world, rand, day, pos);
+				EntityMob entity = getEntity(world, rand, day, pos);
 				entity.setPosition(pos.getX()+0.5f, pos.getY(), pos.getZ()+0.5f);
 				entity.enablePersistence();
 				entity.onAddedToWorld();
@@ -251,23 +249,42 @@ public class ModUtils {
 	}
 
 	private static EntityMob getEntity(World world, Random rand, int day, BlockPos pos) {
-		if (!ConfigHandler.legacySpawns) {
-			if (rand.nextInt(7) == 0) {
-				return new EntityCrawlingZombie(world);
-			}
-			if (world.getBiomeProvider().getBiomes(null, pos.getX(), pos.getZ(), 1, 1, true)[0] == WastelandWorld.apocalypse_city) {
-				int r = rand.nextInt(100);
-				if (r <= 1) return new EntityZombieNurse(world);
-				else if (r <= 3) return new EntityZombieFireman(world);
-				if (day < 10 || r < 25) new EntityDummyZombie2(world);
-				else if (day < 20 || r < 50) return new EntityDummyZombie1(world);
-				else if (r < 75) return new EntityDummyZombie0(world);
-			}
-			else {
-				if (day < 10) return new EntityDummyZombie2(world);
-				else if (day < 20) return new EntityDummyZombie1(world);
-			}
+		int r = rand.nextInt(100);
+
+		if (day <= 1) {
+			if (r >= 50) return new EntityCrawlingZombie(world);
+			return new EntityZombie(world);
 		}
+
+		if (day <= 5) {
+			if (r <= 10) return new EntityZombieFireman(world);
+			if (r <= 40) return new EntityCrawlingZombie(world);
+			return new EntityZombie(world);
+		}
+
+		if (day <= 10) {
+			if (r <= 20) return new EntityZombieFireman(world);
+			if (r <= 30) return new EntityCrawlingZombie(world);
+			return new EntityZombie(world);
+		}
+
+		if (day <= 25) {
+			if (r <= 5) return new EntityInfHuman(world);
+			if (r <= 20) return new EntityCrawlingZombie(world);
+			if (r <= 35) return new EntityZombieFireman(world);
+			return new EntityZombie(world);
+		}
+
+		if (day <= 35) {
+			if (r <= 5) return new EntityZombieNurse(world);
+			if (r <= 10) return new EntityInfHuman(world);
+			if (r <= 20) return new EntityCrawlingZombie(world);
+			if (r <= 35) return new EntityZombieFireman(world);
+			return new EntityZombie(world);
+		}
+
+
+		// If this runs; consider them past all the previous set stages!
 		return new EntityZombie(world);
 	}
 
