@@ -59,6 +59,7 @@ import com.chaosthedude.realistictorches.blocks.RealisticTorchesBlocks;
 import com.mrcrayfish.furniture.blocks.BlockFurniture;
 import com.mrcrayfish.furniture.init.FurnitureBlocks;
 import com.mrcrayfish.furniture.tileentity.TileEntityTree;
+import org.lwjgl.Sys;
 
 public class WorldGenSafehouse extends WorldGenerator {
 
@@ -101,13 +102,17 @@ public class WorldGenSafehouse extends WorldGenerator {
 
 	public boolean markPositions(World world, BlockPos pos, boolean forced) {
 		basepos = pos;
+		System.out.println("Marking positions!");
 		for (int i = -13; i <= 13; i++) {
 			for (int k = -13; k <= 13; k++) {
 				if (Math.abs(i) == 13 || Math.abs(k) == 13) {
+					System.out.println("Math passed");
 					BlockPos hpos = world.getTopSolidOrLiquidBlock(pos.east(i).north(k));
+					System.out.println("Math looping. . .");
 					while (world.getBlockState(hpos).getBlock() != Blocks.STONE)  {
 						hpos = hpos.down();
 					}
+					System.out.println("Loop finished.");
 					hpos = hpos.up(2);
 					if (!forced) {
 						if (hpos.getY() >= pos.getY()+5 || hpos.getY() <= pos.getY()-5) {
@@ -120,11 +125,14 @@ public class WorldGenSafehouse extends WorldGenerator {
 					if (i == 0 && k == 13) {
 						exitpos = hpos;
 					}
+					System.out.println("Finished!");
 				} else {
 					BlockPos hpos = world.getTopSolidOrLiquidBlock(pos.east(i).north(k));
-					while (world.getBlockState(hpos).getBlock() != Blocks.STONE)  {
+					System.out.println("Firing while loop. . .");
+					while (world.getBlockState(hpos).getBlock() != Blocks.STONE && hpos.getY() > 0)  {
 						hpos = hpos.down();
 					}
+					System.out.println("Loop is over!");
 					heightmap.add(hpos.up(2));
 				}
 			}
@@ -438,7 +446,7 @@ public class WorldGenSafehouse extends WorldGenerator {
 		//workbenches and chests
 		//world.setBlockState(pos.west(4).south(4), com.mrcrayfish.guns.init.ModBlocks.WORKBENCH.getDefaultState().withProperty(BlockWorkbench.FACING, isAprilFools ? EnumFacing.EAST : EnumFacing.WEST), 18);
 		world.setBlockState(pos.west(4).south(3), Block.REGISTRY.getObject(new ResourceLocation("sevendaystomine", "workbench")).getStateFromMeta(5), 18);
-		world.setBlockState(pos.south(2).up(5), Block.REGISTRY.getObject(new ResourceLocation("mw", "hanging_body")).getDefaultState(), 18);
+		world.setBlockState(pos.west(-2).south(2).up(5), Block.REGISTRY.getObject(new ResourceLocation("mw", "hanging_body")).getDefaultState(), 18);
 
 		for (int i = 0; i <= 1; i++) {
 			BlockPos chest = pos.south(4).west(i);

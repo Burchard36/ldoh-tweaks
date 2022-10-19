@@ -37,7 +37,8 @@ public class WorldEvents {
 	public static void setWorldSpawn(CreateSpawnPosition event) {
 		World world = event.getWorld();
 		//set gamerule to disable random offset when spawning
-		if (world.getGameRules().getInt("spawnRadius")>0) world.getGameRules().setOrCreateGameRule("spawnRadius", "0");
+		if (world.getGameRules().getInt("spawnRadius")>0)
+			world.getGameRules().setOrCreateGameRule("spawnRadius", "0");
 		Random rand = world.rand;
 		if (world.provider.getDimension() == 0) {
 			WorldGenSafehouse safehouse = new WorldGenSafehouse();
@@ -48,7 +49,7 @@ public class WorldEvents {
 			int z = 0;
 			int tries = 0;
 			while (true) {
-				if (EnumBiomeType.WASTELAND.matches(biome) || ConfigHandler.betaSpawnpoint) {
+				if (EnumBiomeType.WASTELAND.matches(biome) || ConfigHandler.betaSpawnpoint && !EnumBiomeType.OCEAN.matches(biome)) {
 					y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
 					//checks if the safehouse is spawning below y60 or if the structure bounds intersect with a city or another biome
 					if (y <= 60 || !ModUtils.isOnlyWasteland(world, x, z) &! ConfigHandler.betaSpawnpoint) {
@@ -57,7 +58,8 @@ public class WorldEvents {
 						z += rand.nextInt(32) - rand.nextInt(32);
 					} else {
 						//determines if the safehouse can be placed here
-						if (ConfigHandler.betaSpawnpoint || safehouse.markPositions(world, new BlockPos(x, y-1, z), false)) break;
+						if (ConfigHandler.betaSpawnpoint
+								|| safehouse.markPositions(world, new BlockPos(x, y-1, z), false)) break;
 						y = 0;
 						x += rand.nextInt(32) - rand.nextInt(32);
 						z += rand.nextInt(32) - rand.nextInt(32);
@@ -75,19 +77,25 @@ public class WorldEvents {
 				tries++;
 
 				//cancel after 1000 tries to not lock the game in an infinite loop
-				if (tries >= 1000) {
+				if (tries >= 3000) {
 					y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
 					System.out.println("Found no suitable location for spawn (Try generating a new world)");
 					break;
 				}
 			}
+			System.out.println("Suitable Y For crash: " + y);
 			BlockPos spawn = new BlockPos(x, y, z);
 			world.getWorldInfo().setSpawn(spawn);
+			System.out.println("Successfully set spawn.");
 			if (!ConfigHandler.noSafehouse) {
+				System.out.println("Generating Safehouse");
 				if (!safehouse.isMarked()) {
+					System.out.println("Marked safehouse positions");
 					safehouse.markPositions(world, spawn.down(), true);
 				}
+				System.out.println("Generting safehouse");
 				safehouse.generate(world, rand, world.getSpawnPoint().down());
+				System.out.println("Generated safehouse!");
 			}
 			event.setCanceled(true);
 		}
