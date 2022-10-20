@@ -4,7 +4,7 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import net.smileycorp.ldoh.common.item.LDOHItems;
-import buildcraft.core.BCCoreItems;
+import nuparu.sevendaystomine.init.ModItems;
 
 public class EntityZombieTechnician extends EntityProfessionZombie {
 
@@ -14,7 +14,7 @@ public class EntityZombieTechnician extends EntityProfessionZombie {
 
 	@Override
 	protected void setEquipment() {
-		setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(BCCoreItems.wrench));
+		setItemStackToSlot(EntityEquipmentSlot.MAINHAND, new ItemStack(ModItems.WRENCH));
 		setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(LDOHItems.HARDHAT));
 	}
 
