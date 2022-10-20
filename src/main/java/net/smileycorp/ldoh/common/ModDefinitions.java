@@ -11,7 +11,7 @@ public class ModDefinitions {
 	public static final String DEPENDENCIES = "required-after:tektopia;required-after:atlaslib@1.1.5;required-after:rafradek_tf2_weapons;required-after:hordes@1.1.4;required-after:srparasites;"
 			+ "required-after:mod_lavacow;required-after:firstaid;required-after:animania;required-after:wastelands;required-after:biomesoplenty;"
 			+ "required-after:cgm;required-after:cfm;required-after:realistictorches;required-after:xlfoodmod;required-after:cookingforblockheads;"
-			+ "required-after:bibliocraft;required-after:car;required-after:buildcraftcore;after:biometweaker;required-after:animania;required-after:followme;required-after:gamestages;"
+			+ "required-after:bibliocraft;required-after:car;after:biometweaker;required-after:animania;required-after:followme;required-after:gamestages;"
 			+ "required-after:reccomplex;before:vanillafix";
 	public static final String LOCATION = "net.smileycorp.ldoh.";
 	public static final String CLIENT = LOCATION + "client.ClientProxy";
