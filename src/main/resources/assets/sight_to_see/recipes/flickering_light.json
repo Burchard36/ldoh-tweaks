@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+	"group": "sight_to_see:flickering_light",
+	"pattern" : [
+		"IGI"
+	],
+    "key" : {
+		"G" : {
+            "type": "forge:ore_dict",
+    		"ore": "dustGlowstone"
+        },
+		 "I": {
+    		"type": "forge:ore_dict",
+    		"ore": "ingotIron"
+        }
+	},
+    "result": {
+        "item": "sight_to_see:flickering_light",
+        "count": 6,
+        "data": 0
+    }
+}

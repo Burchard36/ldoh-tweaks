@@ -18,18 +18,18 @@ public class ModDefinitions {
 	public static final String COMMON = LOCATION + "common.CommonProxy";
 
 	//translation keys
-	public static final String JOIN_TEAM_MESSAGE = "message.hundreddayz.JoinTeam";
-	public static final String POST_JOIN_TEAM_MESSAGE = "message.hundreddayz.PostJoinTeam";
-	public static final String OTHER_JOIN_TEAM_MESSAGE = "message.hundreddayz.OtherJoinTeam";
-	public static final String DAY_COUNT_MESSAGE = "message.hundreddayz.DayCount";
-	public static final String DAY_100_MESSAGE = "message.hundreddayz.FinalDay";
-	public static final String APOCALYPSE_MESSAGE = "message.hundreddayz.WorldsEnd";
-	public static final String GAS_MESSAGE = "message.hundreddayz.Gas";
-	public static final String LAVA_PICKUP_MESSAGE = "message.hundreddayz.Lava.Pickup";
-	public static final String LAVA_BREAK_MESSAGE = "message.hundreddayz.Lava.Break";
-	public static final String ZOMBIE_EVOLUTION_MESSAGE_0 = "message.hundreddayz.Evolution_0";
-	public static final String ZOMBIE_EVOLUTION_MESSAGE_1 = "message.hundreddayz.Evolution_1";
-	public static final String VILLAGER_MESSAGE = "message.hundreddayz.VillagerMessage";
+	public static final String JOIN_TEAM_MESSAGE = "message.sight_to_see.JoinTeam";
+	public static final String POST_JOIN_TEAM_MESSAGE = "message.sight_to_see.PostJoinTeam";
+	public static final String OTHER_JOIN_TEAM_MESSAGE = "message.sight_to_see.OtherJoinTeam";
+	public static final String DAY_COUNT_MESSAGE = "message.sight_to_see.DayCount";
+	public static final String DAY_100_MESSAGE = "message.sight_to_see.FinalDay";
+	public static final String APOCALYPSE_MESSAGE = "message.sight_to_see.WorldsEnd";
+	public static final String GAS_MESSAGE = "message.sight_to_see.Gas";
+	public static final String LAVA_PICKUP_MESSAGE = "message.sight_to_see.Lava.Pickup";
+	public static final String LAVA_BREAK_MESSAGE = "message.sight_to_see.Lava.Break";
+	public static final String ZOMBIE_EVOLUTION_MESSAGE_0 = "message.sight_to_see.Evolution_0";
+	public static final String ZOMBIE_EVOLUTION_MESSAGE_1 = "message.sight_to_see.Evolution_1";
+	public static final String VILLAGER_MESSAGE = "message.sight_to_see.VillagerMessage";
 
 	//sounds
 	public static final ResourceLocation TF_ENEMY_SOUND = getResource("tf_enemy");

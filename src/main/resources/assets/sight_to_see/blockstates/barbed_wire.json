@@ -1,0 +1,11 @@
+{
+    "forge_marker": 1,
+    "variants": {
+		"axis=x,material=iron": {"model": "sight_to_see:iron_barbed_wire", "uvlock": true},
+		"axis=z,material=iron": {"model": "sight_to_see:iron_barbed_wire", "uvlock": true, "y": 90},
+		"axis=x,material=gold": {"model": "sight_to_see:gold_barbed_wire", "uvlock": true},
+		"axis=z,material=gold": {"model": "sight_to_see:gold_barbed_wire", "uvlock": true, "y": 90},
+		"axis=x,material=diamond": {"model": "sight_to_see:diamond_barbed_wire", "uvlock": true},
+		"axis=z,material=diamond": {"model": "sight_to_see:diamond_barbed_wire", "uvlock": true, "y": 90}
+    }
+}

@@ -1,0 +1,6 @@
+{
+	"parent": "sight_to_see:item/cap",
+	"textures": {
+		"0": "sight_to_see:model/mechanic_hat"
+	}
+}

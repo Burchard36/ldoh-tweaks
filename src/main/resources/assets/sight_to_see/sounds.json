@@ -1,0 +1,21 @@
+{
+  "tf_enemy": {
+    "category": "hostile",
+    "subtitle": "sight_to_see.subtitle.tf.enemy",
+    "sounds": [ "sight_to_see:tf_enemy" ]
+  },
+  "tf_ally": {
+    "category": "neutral",
+    "subtitle": "sight_to_see.subtitle.tf.ally",
+    "sounds": [ "sight_to_see:tf_ally" ]
+  }, 
+  "landmine_beep": {
+    "category": "block",
+    "subtitle": "sight_to_see.subtitle.landmine.beep",
+    "sounds": [ "sight_to_see:landmine_beep" ]
+  },
+  "snore": {
+    "subtitle": "sight_to_see.subtitle.snoring",
+    "sounds": [ "sight_to_see:snore0", "sight_to_see:snore1" ]
+  }
+ }

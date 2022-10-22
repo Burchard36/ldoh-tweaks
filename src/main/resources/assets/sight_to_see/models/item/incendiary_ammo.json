@@ -1,0 +1,6 @@
+{
+    "parent": "cgm:item/basic_ammo",
+    "textures": {
+        "2": "sight_to_see:items/incendiary_ammo"
+	}
+}

@@ -1,0 +1,6 @@
+{	
+	"parent": "item/handheld",
+	"textures": {
+		"layer0": "sight_to_see:items/fire_axe"
+	}
+}

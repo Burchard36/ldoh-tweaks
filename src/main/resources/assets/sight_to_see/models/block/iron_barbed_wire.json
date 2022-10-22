@@ -1,0 +1,7 @@
+{
+	"parent": "sight_to_see:block/barbed_wire",
+	"textures": {
+		"texture": "sight_to_see:blocks/iron_barbed_wire",
+		"particle": "sight_to_see:blocks/iron_barbed_wire"
+	}
+}

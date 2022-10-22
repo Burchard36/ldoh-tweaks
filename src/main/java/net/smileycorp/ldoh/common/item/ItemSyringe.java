@@ -139,7 +139,7 @@ public class ItemSyringe extends Item implements IMetaItem {
 
 	@Override
 	public void addInformation(ItemStack stack, World world, List<String> tooltip, ITooltipFlag flag) {
-		if (stack.getMetadata() == 0) tooltip.add(I18n.translateToLocal("tooltip.hundreddayz.Syringe"));
-		else if (stack.getMetadata() == 2) tooltip.add(I18n.translateToLocal("tooltip.hundreddayz.AntibodySerum"));
+		if (stack.getMetadata() == 0) tooltip.add(I18n.translateToLocal("tooltip.sight_to_see.Syringe"));
+		else if (stack.getMetadata() == 2) tooltip.add(I18n.translateToLocal("tooltip.sight_to_see.AntibodySerum"));
 	}
 }

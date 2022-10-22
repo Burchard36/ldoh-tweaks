@@ -171,7 +171,7 @@ public class PlayerEvents {
 			TileEntity tile = world.getTileEntity(pos);
 			if (tile instanceof TileEntityCrate) {
 				if (((TileEntityCrate) tile).sealed) {
-					if (event.getItemStack().getItem() != FurnitureItems.CROWBAR) player.sendMessage(new TextComponentTranslation("message.hundreddayz.SealedCrate"));
+					if (event.getItemStack().getItem() != FurnitureItems.CROWBAR) player.sendMessage(new TextComponentTranslation("message.sight_to_see.SealedCrate"));
 				}
 			}
 		}

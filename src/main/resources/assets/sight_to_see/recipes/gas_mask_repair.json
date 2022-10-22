@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "group": "sight_to_see:gas_mask",
+    "ingredients": [
+        {
+            "item": "sight_to_see:gas_mask",
+			"data": 32767
+        },
+		{
+            "item": "sight_to_see:gas_filter",
+			"data": 0
+        }
+	],
+    "result": {
+        "item": "sight_to_see:gas_mask",
+		"data": 0,
+        "count": 1
+    }
+}

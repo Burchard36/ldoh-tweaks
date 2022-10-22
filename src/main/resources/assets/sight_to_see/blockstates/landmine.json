@@ -1,0 +1,7 @@
+{
+    "forge_marker": 1,
+    "variants": {
+		"primed=false": {"model": "sight_to_see:landmine", "textures":{"mine": "sight_to_see:blocks/landmine"}},
+		"primed=true": {"model": "sight_to_see:landmine", "textures":{"mine": "sight_to_see:blocks/landmine_primed"}}
+    }
+}

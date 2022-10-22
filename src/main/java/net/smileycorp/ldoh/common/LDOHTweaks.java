@@ -29,7 +29,7 @@ public class LDOHTweaks {
 	public static final DamageSource TOXIC_GAS_DAMAGE = new DamageSourceToxicGas();
 	public static final DamageSource SHRAPNEL_DAMAGE = new DamageSource("Shrapnel");
 
-	public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(ModDefinitions.getName("HundredDayzTab")){
+	public static final CreativeTabs CREATIVE_TAB = new CreativeTabs(ModDefinitions.getName("SightToSeeTab")){
 		@Override
 		@SideOnly(Side.CLIENT)
 		public ItemStack getTabIconItem() {

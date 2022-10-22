@@ -82,7 +82,7 @@ public class Apocalypse implements IApocalypse {
 			if (isActive(world)) {
 				if ((timer == 0)) {
 					spawnWave(world);
-					if (wave==7) player.sendMessage(new TextComponentTranslation("message.hundreddayz.EventEnd"));
+					if (wave==7) player.sendMessage(new TextComponentTranslation("message.sight_to_see.EventEnd"));
 				}
 				timer--;
 			}
@@ -113,7 +113,7 @@ public class Apocalypse implements IApocalypse {
 	public void startEvent() {
 		if (player!=null) {
 			wave = 1;
-			player.sendMessage(new TextComponentTranslation("message.hundreddayz.WorldsEnd"));
+			player.sendMessage(new TextComponentTranslation("message.sight_to_see.WorldsEnd"));
 			started = true;
 		}
 	}

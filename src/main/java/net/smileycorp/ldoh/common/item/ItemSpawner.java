@@ -122,23 +122,23 @@ public class ItemSpawner extends Item implements IMetaItem {
 			entries.add(new ModMobEntry(tfclass, 0x436C34, 0xEF0000, "RED"));
 			entries.add(new ModMobEntry(tfclass, 0x436C34, 0x0000E2, "BLU"));
 		}
-		entries.add(new ModMobEntry(EntityCrawlingZombie.class, "entity.hundreddayz.CrawlingZombie.name" , 0x436C34, 0xBA8644));
-		entries.add(new ModMobEntry(EntityCrawlingHusk.class, "entity.hundreddayz.CrawlingHusk.name" , 0xA5926A, 0xBA8644));
-		entries.add(new ModMobEntry(EntityTF2Zombie.class, "entity.hundreddayz.TFZombie.name", 0x0000E2, 0xEF0000));
-		entries.add(new ModMobEntry(EntityZombieNurse.class, "entity.hundreddayz.NurseZombie.name", 0x436C34, 0xB5ABB4));
-		entries.add(new ModMobEntry(EntitySwatZombie.class, "entity.hundreddayz.SwatZombie.name", 0x436C34, 0x0C0C0D));
-		entries.add(new ModMobEntry(EntityZombieMechanic.class, "entity.hundreddayz.ZombieMechanic.name", 0x436C34, 0x394A6B));
-		entries.add(new ModMobEntry(EntityZombieTechnician.class, "entity.hundreddayz.ZombieTechnician.name", 0x436C34, 0xD4EB5C));
-		entries.add(new ModMobEntry(EntityZombieFireman.class, "entity.hundreddayz.ZombieFireman.name", 0x436C34, 0x20263B));
+		entries.add(new ModMobEntry(EntityCrawlingZombie.class, "entity.sight_to_see.CrawlingZombie.name" , 0x436C34, 0xBA8644));
+		entries.add(new ModMobEntry(EntityCrawlingHusk.class, "entity.sight_to_see.CrawlingHusk.name" , 0xA5926A, 0xBA8644));
+		entries.add(new ModMobEntry(EntityTF2Zombie.class, "entity.sight_to_see.TFZombie.name", 0x0000E2, 0xEF0000));
+		entries.add(new ModMobEntry(EntityZombieNurse.class, "entity.sight_to_see.NurseZombie.name", 0x436C34, 0xB5ABB4));
+		entries.add(new ModMobEntry(EntitySwatZombie.class, "entity.sight_to_see.SwatZombie.name", 0x436C34, 0x0C0C0D));
+		entries.add(new ModMobEntry(EntityZombieMechanic.class, "entity.sight_to_see.ZombieMechanic.name", 0x436C34, 0x394A6B));
+		entries.add(new ModMobEntry(EntityZombieTechnician.class, "entity.sight_to_see.ZombieTechnician.name", 0x436C34, 0xD4EB5C));
+		entries.add(new ModMobEntry(EntityZombieFireman.class, "entity.sight_to_see.ZombieFireman.name", 0x436C34, 0x20263B));
 		try {
-			NBTTagCompound libraryNBT = JsonToNBT.getTagFromJson("{ForgeCaps:{\"hordes:hordespawn\":\"\",\"hundreddayz:spawnprovider\":{isSpawned:1b}}, "
+			NBTTagCompound libraryNBT = JsonToNBT.getTagFromJson("{ForgeCaps:{\"hordes:hordespawn\":\"\",\"sight_to_see:spawnprovider\":{isSpawned:1b}}, "
 					+ "PersistenceRequired:1b, Attributes:[{Base:1.006720000934601d, Name:\"generic.movementSpeed\"}],  "
 					+ "DeathLootTable:\""+ ModDefinitions.getResource("entities/library_zombie") +"\"}");
-			entries.add(new ModMobEntry(EntityZombie.class, "entity.hundreddayz.LibraryZombie.name", 0x436C34, 0x00A5A5, libraryNBT));
-			NBTTagCompound hospitalNBT = JsonToNBT.getTagFromJson("{ForgeCaps:{\"hordes:hordespawn\":\"\",\"hundreddayz:spawnprovider\":{isSpawned:1b}}, "
+			entries.add(new ModMobEntry(EntityZombie.class, "entity.sight_to_see.LibraryZombie.name", 0x436C34, 0x00A5A5, libraryNBT));
+			NBTTagCompound hospitalNBT = JsonToNBT.getTagFromJson("{ForgeCaps:{\"hordes:hordespawn\":\"\",\"sight_to_see:spawnprovider\":{isSpawned:1b}}, "
 					+ "PersistenceRequired:1b, Attributes:[{Base:1.006720000934601d, Name:\"generic.movementSpeed\"}],  "
 					+ "DeathLootTable:\""+ ModDefinitions.getResource("entities/hospital_zombie") +"\"}");
-			entries.add(new ModMobEntry(EntityZombie.class, "entity.hundreddayz.HospitalZombie.name", 0x436C34, 0x00A5A5, hospitalNBT));
+			entries.add(new ModMobEntry(EntityZombie.class, "entity.sight_to_see.HospitalZombie.name", 0x436C34, 0x00A5A5, hospitalNBT));
 		} catch (NBTException e) {
 			e.printStackTrace();
 		}

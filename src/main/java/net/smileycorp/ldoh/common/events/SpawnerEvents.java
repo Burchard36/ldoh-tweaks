@@ -115,7 +115,7 @@ public class SpawnerEvents {
 		if (day > 100 && day%100 == 0) {
 			if (event.getEntityPlayer().getTeam() != null) {
 				if (event.getEntityPlayer().getTeam().getName().equals("RED") || event.getEntityPlayer().getTeam().getName().equals("BLU")) {
-					event.setMessage("message.hundreddayz.TFHordeStart");
+					event.setMessage("message.sight_to_see.TFHordeStart");
 				}
 			}
 		}
@@ -139,7 +139,7 @@ public class SpawnerEvents {
 		if (day > 100 && day%100 == 0) {
 			if (event.getEntityPlayer().getTeam() != null) {
 				if (event.getEntityPlayer().getTeam().getName().equals("RED") || event.getEntityPlayer().getTeam().getName().equals("BLU")) {
-					event.setMessage("message.hundreddayz.TFHordeEnd");
+					event.setMessage("message.sight_to_see.TFHordeEnd");
 				}
 			}
 		}
