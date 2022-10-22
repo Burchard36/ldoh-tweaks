@@ -5,13 +5,13 @@ import net.minecraft.util.ResourceLocation;
 public class ModDefinitions {
 
 	//mod constants
-	public static final String MODID = "hundreddayz";
-	public static final String NAME = "LDoH Tweaks";
-	public static final String VERSION = "1.1.7";
+	public static final String MODID = "sight_to_see";
+	public static final String NAME = "Sight to See Tweaks";
+	public static final String VERSION = "1.0.0";
 	public static final String DEPENDENCIES = "required-after:tektopia;required-after:atlaslib@1.1.5;required-after:rafradek_tf2_weapons;required-after:hordes@1.1.4;required-after:srparasites;"
 			+ "required-after:mod_lavacow;required-after:firstaid;required-after:animania;required-after:wastelands;required-after:biomesoplenty;"
-			+ "required-after:cgm;required-after:cfm;required-after:realistictorches;required-after:xlfoodmod;required-after:cookingforblockheads;"
-			+ "required-after:bibliocraft;required-after:car;after:biometweaker;required-after:animania;required-after:followme;required-after:gamestages;"
+			+ "required-after:cfm;required-after:realistictorches;required-after:xlfoodmod;required-after:cookingforblockheads;"
+			+ "required-after:bibliocraft;after:biometweaker;required-after:animania;required-after:followme;required-after:gamestages;"
 			+ "required-after:reccomplex;before:vanillafix";
 	public static final String LOCATION = "net.smileycorp.ldoh.";
 	public static final String CLIENT = LOCATION + "client.ClientProxy";

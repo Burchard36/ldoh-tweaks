@@ -8,8 +8,6 @@ import java.util.concurrent.ScheduledExecutorService;
 
 import mcjty.lostcities.dimensions.world.LostCityChunkGenerator;
 import mcjty.lostcities.dimensions.world.lost.BuildingInfo;
-import net.insane96mcp.iguanatweaks.modules.ModuleMovementRestriction;
-import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,13 +17,9 @@ import net.minecraft.entity.ai.attributes.IAttributeInstance;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.monster.EntityZombie;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.pathfinding.PathPoint;
 import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.util.math.AxisAlignedBB;
@@ -49,9 +43,6 @@ import net.smileycorp.ldoh.common.ModDefinitions;
 import net.smileycorp.ldoh.common.capabilities.IVillageData;
 import net.smileycorp.ldoh.common.capabilities.LDOHCapabilities;
 import net.smileycorp.ldoh.common.entity.EntityCrawlingZombie;
-import net.smileycorp.ldoh.common.entity.EntityDummyZombie0;
-import net.smileycorp.ldoh.common.entity.EntityDummyZombie1;
-import net.smileycorp.ldoh.common.entity.EntityDummyZombie2;
 import net.smileycorp.ldoh.common.entity.EntityZombieFireman;
 import net.smileycorp.ldoh.common.entity.EntityZombieNurse;
 import net.tangotek.tektopia.Village;
@@ -61,7 +52,6 @@ import rafradek.TF2weapons.item.ItemWeapon;
 
 import com.dhanantry.scapeandrunparasites.entity.monster.infected.EntityInfHuman;
 import com.google.common.collect.Multimap;
-import com.legacy.wasteland.world.WastelandWorld;
 import com.mrcrayfish.furniture.init.FurnitureItems;
 
 public class ModUtils {

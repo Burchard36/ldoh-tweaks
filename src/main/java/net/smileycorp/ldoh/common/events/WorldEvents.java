@@ -49,7 +49,7 @@ public class WorldEvents {
 			int z = 0;
 			int tries = 0;
 			while (true) {
-				if (EnumBiomeType.WASTELAND.matches(biome) || ConfigHandler.betaSpawnpoint && !EnumBiomeType.OCEAN.matches(biome)) {
+				if ((EnumBiomeType.WASTELAND.matches(biome) || ConfigHandler.betaSpawnpoint) && !EnumBiomeType.OCEAN.matches(biome)) {
 					y = world.getTopSolidOrLiquidBlock(new BlockPos(x, 0, z)).getY();
 					//checks if the safehouse is spawning below y60 or if the structure bounds intersect with a city or another biome
 					if (y <= 60 || !ModUtils.isOnlyWasteland(world, x, z) &! ConfigHandler.betaSpawnpoint) {
