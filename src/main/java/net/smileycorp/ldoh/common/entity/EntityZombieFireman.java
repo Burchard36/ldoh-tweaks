@@ -54,10 +54,10 @@ public class EntityZombieFireman extends EntityZombie {
 	@Override
 	public void onLivingUpdate() {
 		super.onLivingUpdate();
-		if (world.getBlockState(getPosition()).getBlock() == Blocks.FIRE) {
+		/*if (world.getBlockState(getPosition()).getBlock() == Blocks.FIRE) {
 			world.setBlockState(getPosition(), Blocks.AIR.getDefaultState());
 			playSound(SoundEvents.BLOCK_FIRE_EXTINGUISH, 0.75f, 0);
-		}
+		}*/
 	}
 
 	@Override
