@@ -30,11 +30,6 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 	}
 
 	@Override
-	protected String getStage() {
-		return "turret_stage";
-	}
-
-	@Override
 	protected void entityInit() {
 		super.entityInit();
 		dataManager.register(BACK_ITEM, SHOTGUN);
@@ -65,52 +60,14 @@ public class EntitySwatZombie extends EntityProfessionZombie {
 	}
 
 	private static ItemStack createGun() {
-		/*ItemStack gun = new ItemStack(ModGuns.MACHINE_PISTOL);
-		NBTTagCompound nbt = new NBTTagCompound();
-		NBTTagCompound attachments = new NBTTagCompound();
-		NBTTagCompound barrel = new NBTTagCompound();
-		barrel.setString("id", "cgm:silencer");
-		barrel.setByte("Count", (byte) 1);
-		barrel.setShort("Damage", (short) 0);
-		attachments.setTag("barrel", barrel);
-		NBTTagCompound scope = new NBTTagCompound();
-		scope.setString("id", "cgm:scope");
-		scope.setByte("Count", (byte) 1);
-		scope.setShort("Damage", (short) 1);
-		attachments.setTag("scope", scope);
-		nbt.setTag("attachments", attachments);
-		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);*/
 		return new ItemStack(Guns.M4A1);
 	}
 
 	private static ItemStack createShotgun() {
-		/*ItemStack gun = new ItemStack(ModGuns.SHOTGUN);
-		NBTTagCompound nbt = new NBTTagCompound();
-		NBTTagCompound attachments = new NBTTagCompound();
-		NBTTagCompound scope = new NBTTagCompound();
-		scope.setString("id", "cgm:scope");
-		scope.setByte("Count", (byte) 1);
-		scope.setShort("Damage", (short) 0);
-		attachments.setTag("scope", scope);
-		nbt.setTag("attachments", attachments);
-		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);*/
 		return new ItemStack(Guns.Spas12);
 	}
 
 	private static ItemStack createPistol() {
-		/*ItemStack gun = new ItemStack(ModGuns.PISTOL);
-		NBTTagCompound nbt = new NBTTagCompound();
-		NBTTagCompound attachments = new NBTTagCompound();
-		NBTTagCompound barrel = new NBTTagCompound();
-		barrel.setString("id", "cgm:silencer");
-		barrel.setByte("Count", (byte) 1);
-		barrel.setShort("Damage", (short) 0);
-		attachments.setTag("barrel", barrel);
-		nbt.setTag("attachments", attachments);
-		nbt.setInteger("color", 1908001);
-		gun.setTagCompound(nbt);*/
 		return new ItemStack(Guns.DesertEagle);
 	}
 

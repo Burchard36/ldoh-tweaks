@@ -75,11 +75,8 @@ tooltip.sight_to_see.Landmine1=Takes 2 minutes after placing to become primed.
 tooltip.sight_to_see.Turret0=Automatically shoots monsters and enemy soldiers.
 tooltip.sight_to_see.Turret1=Uses basic or incendiary ammo ammo.
 tooltip.sight_to_see.Turret2=Repair with iron.
-tooltip.sight_to_see.AntibodySerum=Cures your allies from infection.
 tooltip.sight_to_see.Syringe=Hold right click to extract blood.
 tooltip.sight_to_see.AntibodySerum=Cures your allies from infection.
-tooltip.sight_to_see.incendiary_ammo0=Optional ammo for turrets.
-tooltip.sight_to_see.incendiary_ammo1=Deals extra damage to parasites.
 
 entity.sight_to_see.CrawlingZombie.name=Zombie Crawler
 entity.sight_to_see.CrawlingHusk.name=Husk Crawler

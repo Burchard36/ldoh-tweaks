@@ -30,16 +30,6 @@ public abstract class EntityProfessionZombie extends EntityZombie {
 	@Override
 	public void onDeath(DamageSource source) {
 		super.onDeath(source);
-		if (source.getTrueSource() instanceof EntityPlayer) tryDropBook((EntityPlayer) source.getTrueSource());
-	}
-
-	private void tryDropBook(EntityPlayer player) {
-		if (player != null) {
-			if (!GameStageHelper.hasStage(player, getStage())) {
-				Item item = GameRegistry.findRegistry(Item.class).getValue(new ResourceLocation("gamestagebooks", getStage()));
-				if(item!=null) entityDropItem(new ItemStack(item), 0.0F);
-			}
-		}
 	}
 
 	@Override
@@ -53,6 +43,5 @@ public abstract class EntityProfessionZombie extends EntityZombie {
 	}
 
 	protected abstract void setEquipment();
-	protected abstract String getStage();
 
 }

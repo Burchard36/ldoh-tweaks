@@ -79,16 +79,8 @@ public class PlayerEvents {
 					if (player.isSneaking() &! followers.isCrouching()) followers.setCrouching();
 					else if (!player.isSneaking() && followers.isCrouching()) followers.setUncrouching();
 				}
-				if (world.getWorldTime() == 241000) {
-					ITextComponent text = new TextComponentTranslation(ModDefinitions.ZOMBIE_EVOLUTION_MESSAGE_0);
-					text.setStyle(new Style().setColor(TextFormatting.RED).setBold(true));
-					player.sendMessage(text);
-				}
-				if (world.getWorldTime() == 481000) {
-					ITextComponent text = new TextComponentTranslation(ModDefinitions.ZOMBIE_EVOLUTION_MESSAGE_1);
-					text.setStyle(new Style().setColor(TextFormatting.RED).setBold(true));
-					player.sendMessage(text);
-				}
+
+				//TODO: Change this up a bit
 				if (world.getWorldTime() >= 1080000 &! GameStageHelper.hasStage(player, "town")) {
 					GameStageHelper.addStage(player, "town");
 					ITextComponent survivor = new TextComponentTranslation(ModDefinitions.VILLAGER_MESSAGE + ".Survivor");

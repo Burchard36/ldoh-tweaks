@@ -95,19 +95,6 @@ public class ModUtils {
 		return stack;
 	}
 
-	//sets speed modifiers
-	public static void setEntitySpeed(EntityMob entity) {
-		World world = entity.world;
-		Biome biome = world.getBiome(entity.getPosition());
-		IAttributeInstance speed = entity.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED);
-		if (EnumBiomeType.BADLANDS.matches(biome)) {
-			if (!speed.hasModifier(WASTELAND_MODIFIER)) speed.applyModifier(WASTELAND_MODIFIER);
-		}
-		if (!ConfigHandler.noDaySlowdown)
-			if (world.getWorldTime()%24000 < 12000) if (speed.getModifier(DayTimeSpeedModifier.MODIFIER_UUID) == null)
-				speed.applyModifier(new DayTimeSpeedModifier(world));
-	}
-
 	//gets the cost of an item for a particular tektopia village
 	public  static int getCost(Village village, int baseCost) {
 		float mult = Math.min((village.getTownData().getProfessionSales() / 5) * 0.2F, 10.0F);

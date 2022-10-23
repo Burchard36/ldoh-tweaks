@@ -176,11 +176,8 @@ public class EntityEvents {
 							newentity.onInitialSpawn(world.getDifficultyForLocation(entity.getPosition()), null);
 							world.spawnEntity(newentity);
 							event.setCanceled(true);
-							ModUtils.setEntitySpeed(newentity);
-						} else {
-							ModUtils.setEntitySpeed((EntityMob) entity);
-							tracker.setSpawned(true);
-						}
+						} else tracker.setSpawned(true);
+
 						//replace crawling zombies with their husk counterpart in deserts
 					} else if (entity.getClass() == EntityCrawlingZombie.class) {
 						if (EnumBiomeType.DESERT.matches(world.getBiome(entity.getPosition()))) {
@@ -193,11 +190,8 @@ public class EntityEvents {
 							entity.setDead();
 							world.spawnEntity(newentity);
 							event.setCanceled(true);
-							ModUtils.setEntitySpeed((EntityMob) entity);
-						} else {
-							ModUtils.setEntitySpeed((EntityMob) entity);
-							tracker.setSpawned(true);
-						}
+						} else tracker.setSpawned(true);
+
 					}
 					else if (entity.getClass() == EntityDummyZombie0.class) {
 						if (EnumBiomeType.DESERT.matches(world.getBiome(entity.getPosition()))) {
@@ -210,11 +204,8 @@ public class EntityEvents {
 							entity.setDead();
 							world.spawnEntity(newentity);
 							event.setCanceled(true);
-							ModUtils.setEntitySpeed((EntityMob) entity);
-						} else {
-							ModUtils.setEntitySpeed((EntityMob) entity);
-							tracker.setSpawned(true);
-						}
+						} else tracker.setSpawned(true);
+
 					} else if (entity.getClass() == EntityDummyZombie1.class) {
 						if (EnumBiomeType.DESERT.matches(world.getBiome(entity.getPosition()))) {
 							EntityDummyZombie1 zombie = (EntityDummyZombie1) entity;
@@ -226,11 +217,8 @@ public class EntityEvents {
 							entity.setDead();
 							world.spawnEntity(newentity);
 							event.setCanceled(true);
-							ModUtils.setEntitySpeed((EntityMob) entity);
-						} else {
-							ModUtils.setEntitySpeed((EntityMob) entity);
-							tracker.setSpawned(true);
-						}
+						} else tracker.setSpawned(true);
+
 					} else if (entity.getClass() == EntityDummyZombie2.class) {
 						if (EnumBiomeType.DESERT.matches(world.getBiome(entity.getPosition()))) {
 							EntityDummyZombie2 zombie = (EntityDummyZombie2) entity;
@@ -242,11 +230,7 @@ public class EntityEvents {
 							entity.setDead();
 							world.spawnEntity(newentity);
 							event.setCanceled(true);
-							ModUtils.setEntitySpeed((EntityMob) entity);
-						} else {
-							ModUtils.setEntitySpeed((EntityMob) entity);
-							tracker.setSpawned(true);
-						}
+						} else tracker.setSpawned(true);
 					} else if (entity instanceof EntityZombieMushroom) {
 						if (EnumBiomeType.BADLANDS.matches(world.getBiome(entity.getPosition()))) ((EntityZombieMushroom)entity).setSkin(1);
 						tracker.setSpawned(true);
@@ -323,16 +307,6 @@ public class EntityEvents {
 					event.entity.getCapability(LDOHCapabilities.BLOCK_BREAKING, null).enableBlockBreaking(true);
 				}
 				event.pos = new BlockPos(event.pos.getX(), player.posY, event.pos.getZ());
-
-			} else if (entity.getClass() == EntityZombie.class && event.getDay() <=50) {
-				//turns zombies into a random variant based on rng and day
-				Random rand = world.rand;
-				int randInt = rand.nextInt(100);
-				if (randInt < 3) {
-					event.entity = new EntityTF2Zombie(world);
-				} else if (randInt < 45 - (world.getWorldTime()/24000)) {
-					event.entity = new EntityCrawlingZombie(world);
-				}
 			}
 		}
 	}

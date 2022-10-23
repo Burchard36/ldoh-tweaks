@@ -18,9 +18,4 @@ public class EntityZombieMechanic extends EntityProfessionZombie {
 		setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(LDOHItems.MECHANIC_HAT));
 	}
 
-	@Override
-	protected String getStage() {
-		return "car_stage";
-	}
-
 }

@@ -18,9 +18,4 @@ public class EntityZombieTechnician extends EntityProfessionZombie {
 		setItemStackToSlot(EntityEquipmentSlot.HEAD, new ItemStack(LDOHItems.HARDHAT));
 	}
 
-	@Override
-	protected String getStage() {
-		return "build_stage";
-	}
-
 }
